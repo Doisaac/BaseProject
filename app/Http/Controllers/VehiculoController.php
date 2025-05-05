@@ -12,7 +12,8 @@ class VehiculoController extends Controller
      */
     public function index()
     {
-        //
+        $vehiculos = Vehiculo::all();
+        return view('vehiculos.index', compact('vehiculos'));
     }
 
     /**
@@ -20,7 +21,7 @@ class VehiculoController extends Controller
      */
     public function create()
     {
-        //
+        return view('vehiculos.create');
     }
 
     /**
@@ -28,7 +29,17 @@ class VehiculoController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'placa' => 'required|unique:vehiculos',
+            'marca' => 'required',
+            'modelo' => 'required',
+            'año' => 'required|digits:4|integer',
+            'estado' => 'required|in:activo,inactivo',
+        ]);
+
+        Vehiculo::create($request->all());
+
+        return redirect()->route('vehiculos.index')->with('success', 'El vehículo ha sido creado exitosamente.');
     }
 
     /**
@@ -36,7 +47,7 @@ class VehiculoController extends Controller
      */
     public function show(Vehiculo $vehiculo)
     {
-        //
+        return view('vehiculos.show', compact('vehiculo'));
     }
 
     /**
@@ -44,7 +55,7 @@ class VehiculoController extends Controller
      */
     public function edit(Vehiculo $vehiculo)
     {
-        //
+        return view('vehiculos.edit', compact('vehiculo'));
     }
 
     /**
@@ -52,7 +63,17 @@ class VehiculoController extends Controller
      */
     public function update(Request $request, Vehiculo $vehiculo)
     {
-        //
+        $request->validate([
+            'placa' => 'required|unique:vehiculos,placa,' . $vehiculo->id,
+            'marca' => 'required',
+            'modelo' => 'required',
+            'año' => 'required|digits:4|integer',
+            'estado' => 'required|in:activo,inactivo',
+        ]);
+
+        $vehiculo->update($request->all());
+
+        return redirect()->route('vehiculos.index')->with('success', 'El vehículo ha sido actualizado exitosamente.');
     }
 
     /**
@@ -60,6 +81,7 @@ class VehiculoController extends Controller
      */
     public function destroy(Vehiculo $vehiculo)
     {
-        //
+        $vehiculo->delete();
+        return redirect()->route('vehiculos.index')->with('success', 'Vehículo eliminado exitosamente.');
     }
 }
