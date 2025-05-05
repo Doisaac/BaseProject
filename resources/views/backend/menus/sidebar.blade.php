@@ -41,13 +41,20 @@
                  </li>
                 @endcan
 
-
-
-
+                <nav class="mt-2">
+                    <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="true">
+                        <li class="nav-item">
+                            <a href="{{ route('vehiculos.index') }}" target="frameprincipal" class="nav-link nav-link">
+                                <i class="nav-icon fas fa-car"></i>
+                                <p>
+                                    Vehículos
+                                </p>
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
             </ul>
         </nav>
-
-
     </div>
 </aside>
 
