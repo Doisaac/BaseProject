@@ -9,11 +9,11 @@
     @endcan
 
     @if(session('success'))
-        <div class="alert alert-success">{{ session('success') }}</div>
+        <div class="alertaExito alert alert-success">{{ session('success') }}</div>
     @endif
 
     @if(session('error'))
-        <div class="alert alert-danger">{{ session('error') }}</div>
+        <div class="alertaError alert alert-danger">{{ session('error') }}</div>
     @endif
 
     <table class="table table-bordered">
@@ -115,6 +115,21 @@
             const formularioEliminar = eliminarVehiculoModal.querySelector('form');
             formularioEliminar.action = `/vehiculos/${vehiculoId}`;
         });
+    }
+
+    // Eliminar el mensaje de éxito o error después de 3 segundos
+    const alertaDeExito = document.querySelector('.alertaExito');
+    if (alertaDeExito) {
+        setTimeout(() => {
+            alertaDeExito.remove();
+        }, 2000);
+    }
+
+    const alertaDeError = document.querySelector('.alertaError');
+    if (alertaDeError) {
+        setTimeout(() => {
+            alertaDeError.remove();
+        }, 2000);
     }
 </script>
 @endsection
