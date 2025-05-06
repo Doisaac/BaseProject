@@ -13,7 +13,6 @@ use App\Http\Controllers\VehiculoController;
 
 use App\Http\Controllers\Backend\Dashboard\DashboardController;
 
-
 // --- LOGIN ---
 
 Route::get('/', [LoginController::class,'index'])->name('login');

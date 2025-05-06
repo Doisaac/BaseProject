@@ -4,10 +4,16 @@
 <div class="container mt-4">
     <h2>Vehículos Registrados</h2>
 
-    <a href="{{ route('vehiculos.create') }}" class="btn btn-primary mb-3">Agregar Nuevo Vehículo</a>
+    @can('create-vehicles')
+        <a href="{{ route('vehiculos.create') }}" class="btn btn-primary mb-3">Agregar Nuevo Vehículo</a>
+    @endcan
 
     @if(session('success'))
         <div class="alert alert-success">{{ session('success') }}</div>
+    @endif
+
+    @if(session('error'))
+        <div class="alert alert-danger">{{ session('error') }}</div>
     @endif
 
     <table class="table table-bordered">
@@ -30,7 +36,9 @@
                 <td>{{ $vehiculo->año }}</td>
                 <td>{{ $vehiculo->estado }}</td>
                 <td>
+                @can('update-vehicles', $vehiculo)
                     <a href="{{ route('vehiculos.edit', $vehiculo->id) }}" class="btn btn-warning btn-sm">Editar</a>
+                @endcan
                     <form action="{{ route('vehiculos.destroy', $vehiculo->id) }}" method="POST" style="display:inline-block">
                         @csrf
                         @method('DELETE')
