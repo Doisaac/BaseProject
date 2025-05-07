@@ -5,7 +5,7 @@
 @section('content')
     <h2>Editar Vehículo</h2>
 
-    <form action="{{ route('vehiculos.update', $vehiculo->id) }}" method="POST">
+    <form id="formVehiculo" action="{{ route('vehiculos.update', $vehiculo->id) }}" method="POST" novalidate>
         @csrf
         @method('PUT')
 
@@ -56,3 +56,5 @@
         <a href="{{ route('vehiculos.index') }}" class="btn btn-secondary">Cancelar</a>
     </form>
 @endsection
+
+@vite(['resources/js/app.js']) 
