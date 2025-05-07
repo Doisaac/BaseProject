@@ -2,7 +2,7 @@
 
 @section('content')
 <div class="container mt-4">
-    <h2>Vehículos Registrados</h2>
+    <h2 class="mb-4 text-center">🚗 Vehículos Registrados</h2>
 
     @can('create-vehicles')
         <a href="{{ route('vehiculos.create') }}" class="btn btn-primary mb-3">Agregar Nuevo Vehículo</a>
@@ -16,8 +16,8 @@
         <div class="alertaError alert alert-danger">{{ session('error') }}</div>
     @endif
 
-    <table class="table table-bordered">
-        <thead class="table-light">
+    <table class="table table-striped table-hover table-bordered">
+        <thead class="table-dark">
             <tr>
                 <th>Placa</th>
                 <th>Marca</th>
@@ -34,7 +34,9 @@
                 <td>{{ $vehiculo->marca }}</td>
                 <td>{{ $vehiculo->modelo }}</td>
                 <td>{{ $vehiculo->año }}</td>
-                <td>{{ $vehiculo->estado }}</td>
+                <td><span class="badge {{ $vehiculo->estado == 'Activo' ? 'bg-success' : 'bg-danger' }}">
+                        {{ $vehiculo->estado }}
+                    </span></td>
                 <td>
                 @can('update-vehicles', $vehiculo)
                     <a href="{{ route('vehiculos.edit', $vehiculo->id) }}" class="btn btn-warning btn-sm">Editar</a>
