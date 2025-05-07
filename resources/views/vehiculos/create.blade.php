@@ -5,7 +5,7 @@
 @section('content')
     <h2>Crear Vehículo</h2>
 
-    <form action="{{ route('vehiculos.store') }}" method="POST">
+    <form id="formVehiculo"  action="{{ route('vehiculos.store') }}" method="POST" novalidate>
         @csrf
 
         <div class="mb-3">
@@ -56,3 +56,5 @@
         <a href="{{ route('vehiculos.index') }}" class="btn btn-secondary">Cancelar</a>
     </form>
 @endsection
+
+@vite(['resources/js/app.js']) 
