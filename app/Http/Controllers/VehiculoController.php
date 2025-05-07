@@ -106,7 +106,7 @@ class VehiculoController extends Controller
     
             $vehiculo->update($request->all());
     
-            return redirect()->route('vehiculos.index')->with('success', 'El vehículo ha sido actualizado exitosamente.');
+            return redirect()->route('vehiculos.index')->with('warning', 'El vehículo ha sido actualizado exitosamente.');
         } else {
             // Mostrar un mensaje de error
             return response()->json(['error' => 'No tienes permiso para acceder a esta ruta'], 403);
@@ -122,7 +122,7 @@ class VehiculoController extends Controller
         // Verificar si el usuario autenticado tiene permiso para eliminar vehículos
         if (Gate::allows('delete-vehicles', $vehiculo)) {
             $vehiculo->delete();
-            return redirect()->route('vehiculos.index')->with('success', 'Vehículo eliminado exitosamente.');
+            return redirect()->route('vehiculos.index')->with('danger', 'Vehículo eliminado exitosamente.');
         } else {
             // Mostrar un mensaje de error
             return redirect()->route('vehiculos.index')->with('error', 'No tiene permiso para eliminar registros.');

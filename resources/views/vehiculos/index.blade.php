@@ -12,6 +12,14 @@
         <div class="alertaExito alert alert-success">{{ session('success') }}</div>
     @endif
 
+    @if(session('warning'))
+        <div class="alert alert-warning alert-dismissible fade show">{{ session('warning') }}</div>
+    @endif
+
+    @if(session('danger'))
+        <div class="alert alert-danger alert-dismissible fade show">{{ session('danger') }}</div>
+    @endif
+
     @if(session('error'))
         <div class="alertaError alert alert-danger">{{ session('error') }}</div>
     @endif
@@ -131,6 +139,20 @@
     if (alertaDeError) {
         setTimeout(() => {
             alertaDeError.remove();
+        }, 2000);
+    }
+
+    const alertaWarning = document.querySelector('.alert-warning');
+    if (alertaWarning) {
+        setTimeout(() => {
+            alertaWarning.remove();
+        }, 2000); 
+    }
+
+    const alertaDanger = document.querySelector('.alert-danger');
+    if (alertaDanger) {
+        setTimeout(() => {
+            alertaDanger.remove();
         }, 2000);
     }
 </script>
