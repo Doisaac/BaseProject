@@ -42,7 +42,7 @@
                 <td>{{ $vehiculo->marca }}</td>
                 <td>{{ $vehiculo->modelo }}</td>
                 <td>{{ $vehiculo->año }}</td>
-                <td><span class="badge {{ $vehiculo->estado == 'Activo' ? 'bg-success' : 'bg-danger' }}">
+                <td><span class="badge {{ trim(strtolower($vehiculo->estado)) == 'activo' ? 'bg-success' : 'bg-danger' }}">
                         {{ $vehiculo->estado }}
                     </span></td>
                 <td>
