@@ -1,4 +1,14 @@
 @extends('layouts.app')
+<! link para la funcion de js de local storage y el css theme >
+<link rel="stylesheet" href="{{ asset('css/theme.css') }}">
+
+<div style="display: flex; justify-content: center; align-items: center; gap: 10px; margin: 20px 0;">
+  <div>Modo oscuro</div>
+  <label class="switch">
+    <input type="checkbox" id="theme-toggle" onchange="toggleTheme()" />
+    <span class="slider round"></span>
+  </label>
+</div>
 
 @section('content')
 <div class="bg-body-tertiary py-5">
