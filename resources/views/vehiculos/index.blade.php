@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="min-vh-100 bg-body-tertiary py-5">
+<div class="bg-body-tertiary py-5">
     <div class="container">
 
 
@@ -109,64 +109,68 @@
                                 @endforelse
                             </tbody>
                         </table>
+                    </div>
+                </div>
+            </div>
+    </div>
+</div>
 
+<script>
+	const eliminarVehiculoModal = document.getElementById('eliminarVehiculoModal');
 
-                        <script>
-                            const eliminarVehiculoModal = document.getElementById('eliminarVehiculoModal');
+	if (eliminarVehiculoModal) {
+		eliminarVehiculoModal.addEventListener('show.bs.modal', event => {
+		    const button = event.relatedTarget;
 
-                            if (eliminarVehiculoModal) {
-                                eliminarVehiculoModal.addEventListener('show.bs.modal', event => {
-                                    const button = event.relatedTarget;
+			// Extraer la información del vehículo del botón que activó el modal
+			const vehiculoId = button.dataset.vehiculoId;
+			const vehiculoPlaca = button.dataset.vehiculoPlaca;
+			const vehiculoMarca = button.dataset.vehiculoMarca;
+			const vehiculoModelo = button.dataset.vehiculoModelo;
 
-                                    // Extraer la información del vehículo del botón que activó el modal
-                                    const vehiculoId = button.dataset.vehiculoId;
-                                    const vehiculoPlaca = button.dataset.vehiculoPlaca;
-                                    const vehiculoMarca = button.dataset.vehiculoMarca;
-                                    const vehiculoModelo = button.dataset.vehiculoModelo;
+			// Actualizar el contenido del modal
+			const modalTitle = eliminarVehiculoModal.querySelector('.modal-title');
+			const modalBodyParagraph = eliminarVehiculoModal.querySelector('.modal-body p');
+			const modalEliminarButton = eliminarVehiculoModal.querySelector('.modal-footer button.btn-danger');
 
-                                    // Actualizar el contenido del modal
-                                    const modalTitle = eliminarVehiculoModal.querySelector('.modal-title');
-                                    const modalBodyParagraph = eliminarVehiculoModal.querySelector('.modal-body p');
-                                    const modalEliminarButton = eliminarVehiculoModal.querySelector('.modal-footer button.btn-danger');
-
-                                    modalBodyParagraph.innerHTML = `
+			modalBodyParagraph.innerHTML = `
                 ¿Estás seguro que deseas <strong>eliminar</strong> el vehículo
                 ${vehiculoMarca} ${vehiculoModelo}
                 con placa <strong>${vehiculoPlaca}</strong>?
             `;
 
-                                    const formularioEliminar = eliminarVehiculoModal.querySelector('form');
-                                    formularioEliminar.action = `/vehiculos/${vehiculoId}`;
-                                });
-                            }
+			const formularioEliminar = eliminarVehiculoModal.querySelector('form');
+			formularioEliminar.action = `/vehiculos/${vehiculoId}`;
+		});
+    }
 
-                            // Eliminar el mensaje de éxito o error después de 3 segundos
-                            const alertaDeExito = document.querySelector('.alertaExito');
-                            if (alertaDeExito) {
-                                setTimeout(() => {
-                                    alertaDeExito.remove();
-                                }, 2000);
-                            }
+	// Eliminar el mensaje de éxito o error después de 3 segundos
+	const alertaDeExito = document.querySelector('.alertaExito');
+	if (alertaDeExito) {
+		setTimeout(() => {
+			alertaDeExito.remove();
+		}, 2000);
+    }
 
-                            const alertaDeError = document.querySelector('.alertaError');
-                            if (alertaDeError) {
-                                setTimeout(() => {
-                                    alertaDeError.remove();
-                                }, 2000);
-                            }
+	const alertaDeError = document.querySelector('.alertaError');
+	if (alertaDeError) {
+		setTimeout(() => {
+			alertaDeError.remove();
+		}, 2000);
+    }
 
-                            const alertaWarning = document.querySelector('.alert-warning');
-                            if (alertaWarning) {
-                                setTimeout(() => {
-                                    alertaWarning.remove();
-                                }, 2000);
-                            }
+	const alertaWarning = document.querySelector('.alert-warning');
+	if (alertaWarning) {
+		setTimeout(() => {
+			alertaWarning.remove();
+		}, 2000);
+    }
 
-                            const alertaDanger = document.querySelector('.alert-danger');
-                            if (alertaDanger) {
-                                setTimeout(() => {
-                                    alertaDanger.remove();
-                                }, 2000);
-                            }
-                        </script>
-                        @endsection
+	const alertaDanger = document.querySelector('.alert-danger');
+	if (alertaDanger) {
+		setTimeout(() => {
+			alertaDanger.remove();
+		}, 2000);
+    }
+</script>
+@endsection
