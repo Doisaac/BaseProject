@@ -1,6 +1,8 @@
 @extends('layouts.app')
-<! link para la funcion de js de local storage y el css theme >
+<!-- link para la función de js de local storage y el css theme -->
+
 <link rel="stylesheet" href="{{ asset('css/theme.css') }}">
+<script src="{{ asset('js/theme.js') }}"></script>
 
 <div style="display: flex; justify-content: center; align-items: center; gap: 10px; margin: 20px 0;">
   <div>Modo oscuro</div>
