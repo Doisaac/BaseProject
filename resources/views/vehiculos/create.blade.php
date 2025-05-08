@@ -55,6 +55,7 @@
         <button type="submit" class="btn btn-success">Guardar</button>
         <a href="{{ route('vehiculos.index') }}" class="btn btn-secondary">Cancelar</a>
     </form>
+    <script src="{{ asset('js/vehiculo-form.js') }}"></script>
 @endsection
 
 @vite(['resources/js/app.js']) 
