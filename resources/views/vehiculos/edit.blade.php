@@ -1,5 +1,6 @@
 @extends('layouts.app')
-
+<link rel="stylesheet" href="{{ asset('css/theme.css') }}">
+<script src="{{ asset('js/theme.js') }}" defer></script>
 @section('title', 'Editar Vehículo')
 
 @section('content')
@@ -56,5 +57,6 @@
         <a href="{{ route('vehiculos.index') }}" class="btn btn-secondary">Cancelar</a>
     </form>
 @endsection
+<link rel="stylesheet" href="{{ asset('css/theme.css') }}">
 
 @vite(['resources/js/app.js']) 
