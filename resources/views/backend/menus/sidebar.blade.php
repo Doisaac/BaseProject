@@ -51,6 +51,14 @@
                                 </p>
                             </a>
                         </li>
+                        <li class="nav-item">
+                            <a href="{{ route('api') }}" target="frameprincipal" class="nav-link nav-link">
+                                <i class="nav-icon fas fa-image"></i>
+                                <p>
+                                    Buscador de Imágenes
+                                </p>
+                            </a>
+                        </li>
                     </ul>
                 </nav>
             </ul>
