@@ -1,14 +1,36 @@
 {
+  "_index-xsH4HHeE.js": {
+    "file": "assets/index-xsH4HHeE.js",
+    "name": "index"
+  },
+  "resources/css/api.css": {
+    "file": "assets/api-l0sNRNKZ.js",
+    "name": "api",
+    "src": "resources/css/api.css",
+    "isEntry": true
+  },
   "resources/css/app.css": {
     "file": "assets/app-l0sNRNKZ.js",
     "name": "app",
     "src": "resources/css/app.css",
     "isEntry": true
   },
+  "resources/js/api.js": {
+    "file": "assets/api-nzaY4Zh2.js",
+    "name": "api",
+    "src": "resources/js/api.js",
+    "isEntry": true,
+    "imports": [
+      "_index-xsH4HHeE.js"
+    ]
+  },
   "resources/js/app.js": {
-    "file": "assets/app-idq-j7NU.js",
+    "file": "assets/app-shoC-HKS.js",
     "name": "app",
     "src": "resources/js/app.js",
-    "isEntry": true
+    "isEntry": true,
+    "imports": [
+      "_index-xsH4HHeE.js"
+    ]
   }
 }

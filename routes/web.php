@@ -61,3 +61,7 @@ Route::get('/admin/dashboard', [DashboardController::class,'vistaDashboard'])->n
 // /vehiculos/create -> create
 // etc...
 Route::resource('vehiculos', VehiculoController::class);
+
+Route::middleware('auth')->get('api/', function () {
+    return view('api.buscadorImagenes');
+})->name('api');
