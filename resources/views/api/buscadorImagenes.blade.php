@@ -8,7 +8,7 @@
         <div class="col-lg-6">
             <form id="formulario">
                 <div class="mb-3">
-                    <label for="termino" class="form-label text-white fw-bold text-uppercase">Término Búsqueda</label>
+                    <label for="termino" class="form-label text-secondary fw-bold text-uppercase">Término Búsqueda</label>
                     <input
                         type="text"
                         class="form-control mt-2"
