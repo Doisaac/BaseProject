@@ -64,6 +64,8 @@
     .hero-section {
         position: relative;
         overflow: hidden;
+        border-radius: 25px; /*Esquinas redondeadas, se ven mejor */
+        margin: 20px;
     }
 
     .hero-section::before {
